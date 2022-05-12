@@ -49,12 +49,10 @@
 const { connect } = require('mongoose');
 require('dotenv').config();
 
-// const { DB_URL } = process.env.DB_URL;
+const { DB_URL } = process.env;
 const connectDB = async () => {
   try {
-    await connect(
-      'mongodb+srv://matiassabio:crovaramati@cluster0.nkr7e.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
-    );
+    await connect(DB_URL);
     console.log('MongoDb connected');
   } catch (error) {
     console.error(error);
