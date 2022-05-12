@@ -19,7 +19,7 @@ async function start() {
     resolvers,
   });
   await server.start();
-  server.applyMiddleware({ app });
+  server.applyMiddleware({ app, path: '/graphql' });
 
   app.get('*', (req, res) => res.send('NotFound'));
   app.listen(3000, () => {
